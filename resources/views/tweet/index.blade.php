@@ -10,6 +10,19 @@
 
 <body>
     <h1>Laraval Sample App</h1>
+    <div>
+        <p>Form</p>
+        <form action="{{ route('tweet.create') }}" method="POST">
+            @csrf
+            <label>Tweet</label>
+            <span>140字まで</span>
+            <textarea id="tweet-content" type="text" name="tweet" placeholder="placeholder"></textarea>
+            @error('tweet')
+              <p style="color: red;">{{$message}}</p>
+            @enderror
+            <button type="submit">投稿</button>
+        </form>
+    </div>
     @foreach ($tweets as $tweet)
         <p>{{ $tweet->content }}</p>
     @endforeach
