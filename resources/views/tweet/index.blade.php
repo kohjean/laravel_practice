@@ -18,13 +18,18 @@
             <span>140字まで</span>
             <textarea id="tweet-content" type="text" name="tweet" placeholder="placeholder"></textarea>
             @error('tweet')
-              <p style="color: red;">{{$message}}</p>
+                <p style="color: red;">{{ $message }}</p>
             @enderror
             <button type="submit">投稿</button>
         </form>
     </div>
     @foreach ($tweets as $tweet)
-        <p>{{ $tweet->content }}</p>
+        <details>
+            <summary>{{ $tweet->content }}</summary>
+            <div>
+                <a href="{{ route('tweet.update.index', ['tweetId' => $tweet->id]) }}">編集</a>
+            </div>
+        </details>
     @endforeach
 </body>
 
