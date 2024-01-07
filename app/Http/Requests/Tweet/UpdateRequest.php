@@ -22,7 +22,7 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'tweet' => 'required|max:140'
+            'tweet' => 'required|max:140',
         ];
     }
 
@@ -31,7 +31,7 @@ class UpdateRequest extends FormRequest
         return $this->input('tweet');
     }
 
-    public function id(): int 
+    public function id(): int
     {
         return (int) $this->route('tweetId');
     }

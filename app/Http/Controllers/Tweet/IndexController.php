@@ -14,6 +14,7 @@ class IndexController extends Controller
     public function __invoke(Request $request)
     {
         $tweets = Tweet::orderBy('created_at', 'DESC')->get();
+
         return view('tweet.index')->with('tweets', $tweets);
     }
 }

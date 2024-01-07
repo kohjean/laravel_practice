@@ -24,7 +24,7 @@ class CreateRequest extends FormRequest
     {
         return [
             // このtweetってどこに対応している？ -> bladeに書いている<form>から送られてくる値
-            'tweet' => 'required|max:140'
+            'tweet' => 'required|max:140',
         ];
     }
 

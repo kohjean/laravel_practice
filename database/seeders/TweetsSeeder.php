@@ -1,14 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 use App\Models\Tweet;
+use Illuminate\Database\Seeder;
 
-class TweetsSeeder extends Seeder
+final class TweetsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,4 +16,4 @@ class TweetsSeeder extends Seeder
     {
         Tweet::factory()->count(10)->create();
     }
-};
+}

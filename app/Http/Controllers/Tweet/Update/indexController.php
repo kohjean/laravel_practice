@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Tweet\Update;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Tweet;
+use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class indexController extends Controller
@@ -20,6 +20,7 @@ class indexController extends Controller
         if (is_null($tweet)) {
             throw new NotFoundHttpException('そのTweetは存在しません');
         }
-        return view("tweet.update")->with('tweet', $tweet);
+
+        return view('tweet.update')->with('tweet', $tweet);
     }
 }
