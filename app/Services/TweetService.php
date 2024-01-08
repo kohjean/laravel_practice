@@ -11,6 +11,11 @@ class TweetService
         return Tweet::orderBy('created_at', 'DESC')->get();
     }
 
+    public function getTweet(int $tweetId)
+    {
+        return Tweet::where('id', $tweetId)->first();
+    }
+
     public function checkOwnTweet(int $userId, int $tweetId): bool
     {
         $tweet = Tweet::where('id', $tweetId)->first();
