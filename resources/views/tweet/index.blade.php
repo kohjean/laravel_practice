@@ -13,30 +13,36 @@
     @if (session('feedback.success'))
         <p style="color: green;">{{ session('feedback.success') }}</p>
     @endif
-    <div>
-        <p>Form</p>
-        <form action="{{ route('tweet.create') }}" method="POST">
-            @csrf
-            <label>Tweet</label>
-            <span>140字まで</span>
-            <textarea id="tweet-content" type="text" name="tweet" placeholder="placeholder"></textarea>
-            @error('tweet')
-                <p style="color: red;">{{ $message }}</p>
-            @enderror
-            <button type="submit">投稿</button>
-        </form>
-    </div>
+    @auth
+        <div>
+            <p>Form</p>
+            <form action="{{ route('tweet.create') }}" method="POST">
+                @csrf
+                <label>Tweet</label>
+                <span>140字まで</span>
+                <textarea id="tweet-content" type="text" name="tweet" placeholder="placeholder"></textarea>
+                @error('tweet')
+                    <p style="color: red;">{{ $message }}</p>
+                @enderror
+                <button type="submit">投稿</button>
+            </form>
+        </div>
+    @endauth
     @foreach ($tweets as $tweet)
         <details>
-            <summary>{{ $tweet->content }}</summary>
-            <div>
-                <a href="{{ route('tweet.update.index', ['tweetId' => $tweet->id]) }}">編集</a>
-                <form action="{{ route('tweet.delete', ['tweetId' => $tweet->id]) }}" method="POST">
-                    @method('DELETE')
-                    @csrf
-                    <button type="submit">削除</button>
-                </form>
-            </div>
+            <summary>{{ $tweet->content }} by {{ $tweet->user->name }}</summary>
+            @if (\Illuminate\Support\Facades\Auth::id() === $tweet->user_id)
+                <div>
+                    <a href="{{ route('tweet.update.index', ['tweetId' => $tweet->id]) }}">編集</a>
+                    <form action="{{ route('tweet.delete', ['tweetId' => $tweet->id]) }}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit">削除</button>
+                    </form>
+                </div>
+            @else
+                編集できません
+            @endif
         </details>
     @endforeach
 </body>

@@ -15,6 +15,7 @@ class CreateController extends Controller
     public function __invoke(CreateRequest $request)
     {
         $tweet = new Tweet;
+        $tweet->user_id = $request->userId();
         $tweet->content = 'これは画面から追加した投稿です: '.$request->tweet();
         $tweet->save();
 
