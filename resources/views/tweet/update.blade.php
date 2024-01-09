@@ -23,8 +23,9 @@
                     <label>Tweet</label>
                     <span>140字まで</span>
                     <div>
-                        <textarea id="tweet-content" type="text" name="tweet" placeholder="placeholder" rows="6" cols="80">{{ $tweet->content }}
-                      </textarea>
+                        <textarea id="tweet-content" type="text" name="tweet" placeholder="placeholder" rows="6" cols="80">
+                            {{ $tweet->content }}
+                        </textarea>
                     </div>
                     @error('tweet')
                         <p style="color: red;">{{ $message }}</p>
