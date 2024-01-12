@@ -1,7 +1,5 @@
 {
-    "regions": [
-        "hnd1"
-    ],
+    "regions": ["hnd1"],
     "builds": [
         {
             "src": "/api/index.php",
@@ -31,8 +29,10 @@
         }
     ],
     "env": {
-        "APP_NAME": "Laravel Vercel",
-        "APP_DEBUG": "false",
+        "APP_NAME": "Vercel Laravel",
+        "APP_ENV": "production",
+        "APP_DEBUG": "true",
+        "VERCEL_DEMO_MODE": "true",
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
         "APP_PACKAGES_CACHE": "/tmp/packages.php",
@@ -40,7 +40,9 @@
         "APP_SERVICES_CACHE": "/tmp/services.php",
         "CACHE_DRIVER": "array",
         "LOG_CHANNEL": "stderr",
-        "SESSION_DRIVER": "cookie",
-        "VIEW_COMPILED_PATH": "/tmp"
+        "SESSION_DRIVER": "array",
+        "VIEW_COMPILED_PATH": "/tmp/views",
+        "SSR_TEMP_PATH": "/tmp/ssr",
+        "NODE_PATH": "node"
     }
 }
