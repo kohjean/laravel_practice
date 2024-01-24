@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.form {
+  width: 80%;
+  max-width: 20rem;
+  padding: 2rem 1rem;
+  background-color: #a5a2a2;
+}
+
+.inputArea {
+  display: flex;
+  flex-direction: column;
+
+  input {
+    padding: 4px;
+  }
+
+  label {
+    padding: 4px;
+  }
+}
+
+.submitContainer {
+  display: flex;
+  justify-content: center;
+  padding: 8px;
+  margin-top: 2rem;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid #333;
+
+  &:hover {
+    background-color: #a5a2a2;
+  }
+}
