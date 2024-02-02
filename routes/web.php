@@ -17,9 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::any('{all}', fn () => view('app'))
     ->where(['all' => '^(?!api/*).*']);
 
-Route::get('/sample', [\App\Http\Controllers\Sample\IndexController::class, 'show']);
-Route::get('/sample/{id}', [\App\Http\Controllers\Sample\IndexController::class, 'showId']);
-
 Route::get('/api/tweet', \App\Http\Controllers\Tweet\IndexController::class)->name('tweet.index');
 Route::get('/api/update/{tweetId}', \App\Http\Controllers\Tweet\Update\IndexController::class)->name('tweet.update.index')->where('tweetId', '[0-9]+');
 Route::delete('/api/delete/{tweetId}', \App\Http\Controllers\Tweet\DeleteController::class)->name('tweet.delete');

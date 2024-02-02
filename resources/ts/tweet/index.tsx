@@ -9,6 +9,7 @@ export const TweetPage = () => {
   useEffect(() => {
     const getTweet = async () => {
       const { data } = await axios.get('/api/tweet')
+      console.log(data)
       setTweets(data)
     }
     getTweet()
