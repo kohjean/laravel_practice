@@ -12,8 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('tweets', function (Blueprint $table) {
+            // for local MySQL
+            // $table->foreign('user_id')->references('id')->on('users');
+
+            // for planetscale
             $table->unsignedBigInteger('user_id')->after('id');
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

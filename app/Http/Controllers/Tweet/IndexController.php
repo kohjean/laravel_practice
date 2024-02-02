@@ -15,6 +15,6 @@ class IndexController extends Controller
     {
         $tweets = $tweetService->getTweets();
 
-        return view('tweet.index')->with('tweets', $tweets);
+        return $tweets;
     }
 }
